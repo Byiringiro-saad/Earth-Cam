@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   height: 70px;
-  padding: 0 10px;
+  padding: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -18,13 +18,19 @@
 }
 
 .container .left .bars {
-  width: 100px;
+  width: 40px;
   height: 40%;
   display: flex;
   align-items: center;
   justify-content: center;
   border-right: 2px solid var(--gray);
   margin: 0 10px 0 0;
+}
+
+.container .left .bars .icon {
+  font-size: 1.5em;
+  color: var(--black);
+  cursor: pointer;
 }
 
 .container .left a {
@@ -52,6 +58,15 @@
   align-items: center;
   justify-content: space-between;
   background: var(--gray);
+  border-radius: 3px;
+}
+
+.container .middle .form .icon {
+  font-size: 1.4em;
+  margin: 0 5px 0 0;
+  border-right: 1px solid var(--black);
+  color: var(--black);
+  width: 10%;
 }
 
 .container .middle .form input {
@@ -60,7 +75,7 @@
   border: none;
   outline: none;
   background: transparent;
-  padding: 0 0 0 10px;
+  padding: 0 10px;
 }
 
 .container .middle .form button {
@@ -81,8 +96,22 @@
   justify-content: flex-end;
 }
 
-.container .right a {
+.container .right div {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   margin: 0 10px;
+}
+
+.container .right div .icon {
+  font-size: 1.4em;
+  color: var(--black);
+  margin: 0 5px 0 0;
+}
+
+.container .right a {
   text-decoration: none;
   color: var(--black);
 }
