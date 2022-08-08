@@ -1,0 +1,88 @@
+.container {
+  width: 100%;
+  height: 70px;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container .left {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.container .left .bars {
+  width: 100px;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 2px solid var(--gray);
+  margin: 0 10px 0 0;
+}
+
+.container .left a {
+  font-size: 1.2em;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.container .middle {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.container .middle .form {
+  width: 60%;
+  height: 40%;
+  display: flex;
+  padding: 0 3px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--gray);
+}
+
+.container .middle .form input {
+  width: 70%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0 0 0 10px;
+}
+
+.container .middle .form button {
+  width: 20%;
+  height: 80%;
+  background: var(--blue);
+  border: none;
+  color: var(--white);
+  border-radius: 3px;
+}
+
+.container .right {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.container .right a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: var(--black);
+}
