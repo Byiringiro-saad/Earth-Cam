@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 
 import { FaBars } from "react-icons/fa";
@@ -7,12 +7,20 @@ import { TbDeviceTv } from "react-icons/tb";
 import { BsCameraVideo } from "react-icons/bs";
 
 import styles from "./nav.module.css";
+import Sidebar from "../sidebar/sidebar";
 
 const Nav = () => {
+  const [sidebar, setSidebar] = useState(false);
+
+  const handleSidebar = () => {
+    setSidebar(!sidebar);
+  };
+
   return (
     <div className={styles.container}>
+      {sidebar ? <Sidebar close={handleSidebar} /> : null}
       <div className={styles.left}>
-        <div className={styles.bars}>
+        <div className={styles.bars} onClick={handleSidebar}>
           <FaBars className={styles.icon} />
         </div>
         <Link href="/">WorldCam</Link>
