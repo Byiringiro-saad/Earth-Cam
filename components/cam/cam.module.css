@@ -1,0 +1,42 @@
+.container {
+  width: 18%;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  color: var(--black);
+}
+
+.image {
+  width: 100%;
+  height: 70%;
+  background: var(--black);
+  border-radius: 5px;
+  margin: 0 0 10px 0;
+}
+
+.about {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.about p {
+  width: 100%;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.about .title {
+  font-weight: 700;
+}
+
+.about .icon {
+  font-size: 1.3em;
+  margin: 0 5px 0 0;
+}
