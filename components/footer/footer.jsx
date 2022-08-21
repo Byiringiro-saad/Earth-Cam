@@ -1,8 +1,26 @@
 import React from "react";
+import { useRouter } from "next/router";
 
 import styles from "./footer.module.css";
 
 const Footer = () => {
+  const router = useRouter();
+  const [categories, setCategories] = React.useState([
+    "Tress",
+    "People",
+    "Beach",
+    "City",
+    "Nature",
+    "Animals",
+    "Food",
+    "Travel",
+    "Sports",
+  ]);
+
+  const goToCategory = (e) => {
+    router.push(`/${e.target.innerHTML.toLowerCase()}`);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -12,17 +30,11 @@ const Footer = () => {
         <div className={styles.column}>
           <p className={styles.header}>Resources</p>
           <ul>
-            <li>Animals</li>
-            <li>Sky</li>
-            <li>People</li>
-            <li>Skyscrapers</li>
-            <li>Forest</li>
-            <li>Rain</li>
-            <li>Highway</li>
-            <li>Mountains</li>
-            <li>Animals</li>
-            <li>Sky</li>
-            <li>Skyscrapers</li>
+            {categories.map((category, index) => (
+              <li onClick={goToCategory} key={index}>
+                {category}
+              </li>
+            ))}
           </ul>
         </div>
         <div className={styles.column}>

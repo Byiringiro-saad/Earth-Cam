@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/router";
 
 import { ImCross } from "react-icons/im";
 import { GoSettings } from "react-icons/go";
@@ -6,6 +7,39 @@ import { GoSettings } from "react-icons/go";
 import styles from "./sidebar.module.css";
 
 const Sidebar = ({ close }) => {
+  const router = useRouter();
+  const [categories, setCategories] = React.useState([
+    "Tress",
+    "People",
+    "Beach",
+    "City",
+    "Nature",
+    "Animals",
+    "Food",
+    "Travel",
+    "Sports",
+    "Architecture",
+    "Art",
+    "Fashion",
+    "Technology",
+    "Nature",
+    "Animals",
+    "Food",
+    "Travel",
+    "Sports",
+    "Architecture",
+    "Art",
+    "Fashion",
+    "Technology",
+    "Nature",
+    "Animals",
+  ]);
+
+  const goToCategory = (e) => {
+    router.push(`/${e.target.innerHTML.toLowerCase()}`);
+    close();
+  };
+
   return (
     <div className={styles.all}>
       <div className={styles.container}>
@@ -19,26 +53,12 @@ const Sidebar = ({ close }) => {
             <p>Filter WorldCams</p>
           </div>
           <ul className={styles.list}>
-            <li>All</li>
-            <li>Animals</li>
-            <li>Sky</li>
-            <li>People</li>
-            <li>Skyscrapers</li>
-            <li>Forest</li>
-            <li>Rain</li>
-            <li>Highway</li>
-            <li>Mountains</li>
-            <li>Animals</li>
-            <li>Sky</li>
-            <li>Skyscrapers</li>
-            <li>Highway</li>
-            <li>Beach</li>
-            <li>Stadium</li>
-            <li>City</li>
-            <li>Water</li>
-            <li>Flowers</li>
-            <li>Trees</li>
-            <li>Cars</li>
+            <li onClick={() => router.push("/")}>All</li>
+            {categories.map((category, index) => (
+              <li key={index} onClick={goToCategory}>
+                {category}
+              </li>
+            ))}
           </ul>
         </div>
       </div>

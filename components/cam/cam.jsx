@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/router";
 
 import { MdLocationOn } from "react-icons/md";
 import { AiFillEye } from "react-icons/ai";
@@ -6,8 +7,23 @@ import { AiFillEye } from "react-icons/ai";
 import styles from "./cam.module.css";
 
 const Cam = () => {
+  const router = useRouter();
+
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={
+        router?.query?.category
+          ? {
+              margin: "0 0 40px 0",
+              background: "var(--gray)",
+              padding: "7px",
+              width: "18.5%",
+              borderRadius: "5px",
+            }
+          : {}
+      }
+    >
       <div className={styles.image}></div>
       <div className={styles.about}>
         <p className={styles.title}>Tidal Basin Cam</p>
