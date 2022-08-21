@@ -20,7 +20,7 @@ const Category = () => {
       </div>
       <div className={styles.cams}>
         {[...Array(15)].map((_, index) => (
-          <Cam key={index} />
+          <Cam key={index} title={router?.query?.category} width={18.5} />
         ))}
       </div>
       <PaginationC />

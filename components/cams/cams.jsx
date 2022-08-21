@@ -20,7 +20,7 @@ const Cams = ({ title, num }) => {
       </div>
       <div className={styles.cams}>
         {[...Array(5)].map((_, index) => (
-          <Cam key={index} />
+          <Cam key={index} title={title} />
         ))}
       </div>
     </div>

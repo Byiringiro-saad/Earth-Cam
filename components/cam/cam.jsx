@@ -6,8 +6,12 @@ import { AiFillEye } from "react-icons/ai";
 
 import styles from "./cam.module.css";
 
-const Cam = () => {
+const Cam = ({ title, width }) => {
   const router = useRouter();
+
+  const goToCam = () => {
+    router.push(`/${title.toLowerCase()}/5`);
+  };
 
   return (
     <div
@@ -18,11 +22,12 @@ const Cam = () => {
               margin: "0 0 40px 0",
               background: "var(--gray)",
               padding: "7px",
-              width: "18.5%",
+              width: `${width}%`,
               borderRadius: "5px",
             }
           : {}
       }
+      onClick={goToCam}
     >
       <div className={styles.image}></div>
       <div className={styles.about}>
