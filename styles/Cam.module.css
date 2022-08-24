@@ -1,6 +1,7 @@
 .container {
   width: 100%;
   height: auto;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,7 +71,7 @@
 
 .about {
   width: 98%;
-  height: 200px;
+  height: auto;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -138,4 +139,79 @@
 
 .recomends .right {
   width: 30%;
+}
+
+@media screen and (max-width: 992px) {
+  .info .left {
+    width: 60%;
+  }
+
+  .info .right {
+    width: 35%;
+  }
+
+  .recomends {
+    flex-direction: column;
+  }
+
+  .recomends .left {
+    width: 100%;
+  }
+
+  .recomends .right {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .info {
+    width: 66%;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 200px;
+    align-self: flex-start;
+    padding-left: 5px;
+  }
+
+  .info .left {
+    width: 100%;
+    height: 40%;
+    border: none;
+  }
+
+  .info .right {
+    width: 100%;
+    height: 45%;
+  }
+
+  .about {
+    width: 60%;
+    height: auto;
+    align-self: flex-start;
+    padding-left: 5px;
+    flex-direction: column-reverse;
+  }
+
+  .about .right {
+    width: 100%;
+    border-bottom: 3px solid #a4a4a4;
+  }
+
+  .about .left {
+    width: 100%;
+    padding: 20px 0;
+  }
+
+  .recomends .right {
+    position: absolute;
+    top: 630px;
+    right: 5px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+  }
 }

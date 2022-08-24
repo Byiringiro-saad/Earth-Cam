@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
@@ -16,13 +16,30 @@ import Player from "../../components/player/player";
 
 const CamPage = () => {
   const router = useRouter();
+  const [tablet, setTablet] = useState(false);
+  const [phone, setPhone] = useState(false);
 
   const geoUrl =
     "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
 
+  useEffect(() => {
+    const width = window.innerWidth;
+
+    if (width > 992) {
+      setTablet(false);
+      setPhone(false);
+    } else if (width < 992 && width > 600) {
+      setTablet(true);
+      setPhone(false);
+    } else {
+      setPhone(true);
+      setTablet(false);
+    }
+  }, []);
+
   return (
     <div className={styles.container}>
-      <Nav />
+      <Nav tablet={tablet} phone={phone} />
       <Player />
       <div className={styles.info}>
         <div className={styles.left}>
@@ -58,10 +75,6 @@ const CamPage = () => {
             Vestibulum nec vulputate turpis, id euismod orci. Phasellus
             consectetur tortor est. Donec lectus ex, rhoncus ac consequat at,
             viverra sit amet sem. Aliquam sed vestibulum nibh. Phasellus ut
-            lorem pharetra, placerat urna id, tincidunt quam. Praesent non ex
-            congue, tristique risus quis, blandit purus. Sed tristique sapien ut
-            vehicula pretium. Donec purus metus, vulputate sit amet ullamcorper
-            vel, aliquet ac lectus.
           </p>
         </div>
         <div className={styles.right}>
@@ -88,14 +101,24 @@ const CamPage = () => {
             <Link href={`/${router?.query?.category}`}>Seel all</Link>
           </div>
           <div className={styles.cams}>
-            {[...Array(6)].map((_, index) => (
-              <Cam key={index} width={30} title={router?.query?.category} />
-            ))}
+            {!tablet &&
+              !phone &&
+              [...Array(6)].map((_, index) => (
+                <Cam key={index} width={32} title={router?.query?.category} />
+              ))}
+            {tablet &&
+              [...Array(6)].map((_, index) => (
+                <Cam key={index} width={32} title={router?.query?.category} />
+              ))}
+            {phone &&
+              [...Array(2)].map((_, index) => (
+                <Cam key={index} width={100} title={router?.query?.category} />
+              ))}
           </div>
         </div>
         <div className={styles.right}>
           {[...Array(2)].map((_, index) => (
-            <Ad key={index} />
+            <Ad key={index} width={phone ? 98 : 49} />
           ))}
         </div>
       </div>

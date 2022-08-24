@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 import styles from "./top.module.css";
 
-const Top = () => {
+const Top = ({ tablet, phone }) => {
   const router = useRouter();
   const [categories, setCategories] = React.useState([
     "Tress",
@@ -37,19 +37,49 @@ const Top = () => {
       >
         All
       </li>
-      {categories.map((category, index) => (
-        <li
-          onClick={goToCategory}
-          key={index}
-          style={
-            router?.query?.category == category.toLowerCase()
-              ? { background: "var(--blue)", color: "var(--white)" }
-              : {}
-          }
-        >
-          {category}
-        </li>
-      ))}
+      {tablet &&
+        categories.slice(0, 9).map((category, index) => (
+          <li
+            onClick={goToCategory}
+            key={index}
+            style={
+              router?.query?.category == category.toLowerCase()
+                ? { background: "var(--blue)", color: "var(--white)" }
+                : {}
+            }
+          >
+            {category}
+          </li>
+        ))}
+      {phone &&
+        categories.slice(0, 4).map((category, index) => (
+          <li
+            onClick={goToCategory}
+            key={index}
+            style={
+              router?.query?.category == category.toLowerCase()
+                ? { background: "var(--blue)", color: "var(--white)" }
+                : {}
+            }
+          >
+            {category}
+          </li>
+        ))}
+      {!tablet &&
+        !phone &&
+        categories.map((category, index) => (
+          <li
+            onClick={goToCategory}
+            key={index}
+            style={
+              router?.query?.category == category.toLowerCase()
+                ? { background: "var(--blue)", color: "var(--white)" }
+                : {}
+            }
+          >
+            {category}
+          </li>
+        ))}
     </ul>
   );
 };

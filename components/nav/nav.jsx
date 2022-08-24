@@ -3,13 +3,11 @@ import Link from "next/link";
 
 import { FaBars } from "react-icons/fa";
 import { BiSearch } from "react-icons/bi";
-import { TbDeviceTv } from "react-icons/tb";
-import { BsCameraVideo } from "react-icons/bs";
 
 import styles from "./nav.module.css";
 import Sidebar from "../sidebar/sidebar";
 
-const Nav = () => {
+const Nav = ({ tablet, phone }) => {
   const [sidebar, setSidebar] = useState(false);
 
   const handleSidebar = () => {
@@ -18,7 +16,9 @@ const Nav = () => {
 
   return (
     <div className={styles.container}>
-      {sidebar ? <Sidebar close={handleSidebar} /> : null}
+      {sidebar ? (
+        <Sidebar close={handleSidebar} tablet={tablet} phone={phone} />
+      ) : null}
       <div className={styles.left}>
         <div className={styles.bars} onClick={handleSidebar}>
           <FaBars className={styles.icon} />
@@ -33,14 +33,16 @@ const Nav = () => {
         </form>
       </div>
       <div className={styles.right}>
-        <div>
+        {/* <div>
           <TbDeviceTv className={styles.icon} />
           <Link href="tv">WorldCam Tv</Link>
         </div>
         <div>
           <BsCameraVideo className={styles.icon} />
           <Link href="mine">My WorldCam</Link>
-        </div>
+        </div> */}
+        <Link href="/submit">Submit</Link>
+        <Link href="/login">Login</Link>
       </div>
     </div>
   );

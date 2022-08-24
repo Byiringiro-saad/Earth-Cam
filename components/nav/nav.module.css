@@ -94,8 +94,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
+  padding: 0 10px;
 }
-
+/* 
 .container .right div {
   width: 50%;
   height: 100%;
@@ -114,4 +115,45 @@
 .container .right a {
   text-decoration: none;
   color: var(--black);
+} */
+
+.container .right a {
+  width: 100px;
+  height: 30px;
+  background: var(--blue);
+  border-radius: 3px;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 0 10px;
+}
+
+@media screen and (max-width: 992px) {
+  .container .right {
+    display: none;
+  }
+
+  .container .middle {
+    width: 70%;
+  }
+
+  .container .middle .form {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container .left {
+    width: 50%;
+  }
+
+  .container .right {
+    display: flex;
+    width: 50%;
+  }
+
+  .container .middle {
+    display: none;
+  }
 }
