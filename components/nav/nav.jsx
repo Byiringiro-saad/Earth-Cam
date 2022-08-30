@@ -7,7 +7,7 @@ import { BiSearch } from "react-icons/bi";
 import styles from "./nav.module.css";
 import Sidebar from "../sidebar/sidebar";
 
-const Nav = ({ tablet, phone }) => {
+const Nav = ({}) => {
   const [sidebar, setSidebar] = useState(false);
 
   const handleSidebar = () => {
@@ -16,9 +16,7 @@ const Nav = ({ tablet, phone }) => {
 
   return (
     <div className={styles.container}>
-      {sidebar ? (
-        <Sidebar close={handleSidebar} tablet={tablet} phone={phone} />
-      ) : null}
+      {sidebar ? <Sidebar close={handleSidebar} /> : null}
       <div className={styles.left}>
         <div className={styles.bars} onClick={handleSidebar}>
           <FaBars className={styles.icon} />

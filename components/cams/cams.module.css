@@ -33,3 +33,18 @@
   align-items: center;
   justify-content: space-between;
 }
+
+@media screen and (max-width: 992px) {
+  .container {
+    height: auto;
+  }
+
+  .container .cams {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .top {
+    height: 50px;
+  }
+}

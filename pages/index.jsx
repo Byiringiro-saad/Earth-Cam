@@ -8,8 +8,6 @@ import PaginationC from "../components/pagination/pagination";
 import Top from "../components/top/top";
 
 export default function Home() {
-  const [tablet, setTablet] = useState(false);
-  const [phone, setPhone] = useState(false);
   const [cams, setCams] = useState([
     "Tress",
     "People",
@@ -22,34 +20,13 @@ export default function Home() {
     "Sports",
   ]);
 
-  useEffect(() => {
-    const width = window.innerWidth;
-
-    if (width > 992) {
-      setTablet(false);
-      setPhone(false);
-    } else if (width < 992 && width > 600) {
-      setTablet(true);
-      setPhone(false);
-    } else {
-      setPhone(true);
-      setTablet(false);
-    }
-  }, []);
-
   return (
     <div className={styles.container}>
-      <Nav tablet={tablet} phone={phone} />
-      <Top tablet={tablet} phone={phone} />
+      <Nav />
+      <Top />
       <div className={styles.cams}>
         {cams.map((cam, index) => (
-          <Cams
-            key={index}
-            title={cam}
-            num={index}
-            tablet={tablet}
-            phone={phone}
-          />
+          <Cams key={index} title={cam} num={index} />
         ))}
       </div>
       <PaginationC />

@@ -9,7 +9,7 @@ import { BsCameraVideo } from "react-icons/bs";
 
 import styles from "./sidebar.module.css";
 
-const Sidebar = ({ close, tablet }) => {
+const Sidebar = ({ close }) => {
   const router = useRouter();
   const [categories, setCategories] = React.useState([
     "Tress",
@@ -60,12 +60,10 @@ const Sidebar = ({ close, tablet }) => {
               <BsCameraVideo className={styles.icon} /> <span> </span>
               My WorldCam
             </p>
-            {tablet && (
-              <div className={styles.auth}>
-                <Link href="/submit">Submit</Link>
-                <Link href="/login">Login</Link>
-              </div>
-            )}
+            <div className={styles.auth}>
+              <Link href="/submit">Submit</Link>
+              <Link href="/login">Login</Link>
+            </div>
           </div>
           <div className={styles.header}>
             <GoSettings className={styles.icon} />

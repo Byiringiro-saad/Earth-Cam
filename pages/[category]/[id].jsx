@@ -16,30 +16,13 @@ import Player from "../../components/player/player";
 
 const CamPage = () => {
   const router = useRouter();
-  const [tablet, setTablet] = useState(false);
-  const [phone, setPhone] = useState(false);
 
-  const geoUrl =
-    "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
-
-  useEffect(() => {
-    const width = window.innerWidth;
-
-    if (width > 992) {
-      setTablet(false);
-      setPhone(false);
-    } else if (width < 992 && width > 600) {
-      setTablet(true);
-      setPhone(false);
-    } else {
-      setPhone(true);
-      setTablet(false);
-    }
-  }, []);
+  // const geoUrl =
+  //   "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
 
   return (
     <div className={styles.container}>
-      <Nav tablet={tablet} phone={phone} />
+      <Nav />
       <Player />
       <div className={styles.info}>
         <div className={styles.left}>
@@ -101,24 +84,14 @@ const CamPage = () => {
             <Link href={`/${router?.query?.category}`}>Seel all</Link>
           </div>
           <div className={styles.cams}>
-            {!tablet &&
-              !phone &&
-              [...Array(6)].map((_, index) => (
-                <Cam key={index} width={32} title={router?.query?.category} />
-              ))}
-            {tablet &&
-              [...Array(6)].map((_, index) => (
-                <Cam key={index} width={32} title={router?.query?.category} />
-              ))}
-            {phone &&
-              [...Array(2)].map((_, index) => (
-                <Cam key={index} width={100} title={router?.query?.category} />
-              ))}
+            {[...Array(6)].map((_, index) => (
+              <Cam key={index} width={280} title={router?.query?.category} />
+            ))}
           </div>
         </div>
         <div className={styles.right}>
-          {[...Array(2)].map((_, index) => (
-            <Ad key={index} width={phone ? 98 : 49} />
+          {[...Array(1)].map((_, index) => (
+            <Ad key={index} />
           ))}
         </div>
       </div>

@@ -22,7 +22,7 @@ const Cam = ({ title, width }) => {
               margin: "0 0 40px 0",
               background: "var(--gray)",
               padding: "7px",
-              width: `${width}%`,
+              width: `${width}px`,
               borderRadius: "5px",
             }
           : {}

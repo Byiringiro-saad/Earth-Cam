@@ -4,7 +4,7 @@ import Link from "next/link";
 import Cam from "../cam/cam";
 import styles from "./cams.module.css";
 
-const Cams = ({ title, num, tablet, phone }) => {
+const Cams = ({ title, num }) => {
   return (
     <div
       style={
@@ -19,13 +19,9 @@ const Cams = ({ title, num, tablet, phone }) => {
         <Link href={`/${title.toLowerCase()}`}>See more</Link>
       </div>
       <div className={styles.cams}>
-        {!tablet &&
-          !phone &&
-          [...Array(5)].map((_, index) => <Cam key={index} title={title} />)}
-        {tablet &&
-          [...Array(3)].map((_, index) => <Cam key={index} title={title} />)}
-        {phone &&
-          [...Array(1)].map((_, index) => <Cam key={index} title={title} />)}
+        {[...Array(5)].map((_, index) => (
+          <Cam key={index} title={title} />
+        ))}
       </div>
     </div>
   );
