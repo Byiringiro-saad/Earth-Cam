@@ -85,7 +85,7 @@ const CamPage = () => {
           </div>
           <div className={styles.cams}>
             {[...Array(6)].map((_, index) => (
-              <Cam key={index} width={280} title={router?.query?.category} />
+              <Cam key={index} width={250} title={router?.query?.category} />
             ))}
           </div>
         </div>
