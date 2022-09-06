@@ -21,7 +21,7 @@ const Nav = ({}) => {
         <div className={styles.bars} onClick={handleSidebar}>
           <FaBars className={styles.icon} />
         </div>
-        <Link href="/">WorldCam</Link>
+        <Link href="/">SmartCam</Link>
       </div>
       <div className={styles.middle}>
         <form action="#" className={styles.form}>

@@ -8,6 +8,7 @@ import styles from "./cam.module.css";
 
 const Cam = ({ title, width }) => {
   const router = useRouter();
+  const imageUrl = `https://picsum.photos/300/300?random=${Math.random()}`;
 
   const goToCam = () => {
     router.push(`/${title.toLowerCase()}/5`);
@@ -29,7 +30,10 @@ const Cam = ({ title, width }) => {
       }
       onClick={goToCam}
     >
-      <div className={styles.image}></div>
+      <div className={styles.image}>
+        <img src={imageUrl} alt="banner" />
+        {/* <img src="https://random.imagecdn.app/500/500" alt="sasda" /> */}
+      </div>
       <div className={styles.about}>
         <p className={styles.title}>Tidal Basin Cam</p>
         <p>

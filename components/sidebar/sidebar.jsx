@@ -47,18 +47,18 @@ const Sidebar = ({ close }) => {
     <div className={styles.all}>
       <div className={styles.container}>
         <div className={styles.top}>
-          <p className={styles.title}>WorldCam</p>
+          <p className={styles.title}>SmartCam</p>
           <ImCross className={styles.icon} onClick={() => close()} />
         </div>
         <div className={styles.content}>
           <div className={styles.nav}>
             <p>
               <TbDeviceTv className={styles.icon} /> <span> </span>
-              WorldCam Tv
+              SmartCam Tv
             </p>
             <p>
               <BsCameraVideo className={styles.icon} /> <span> </span>
-              My WorldCam
+              My SmartCam
             </p>
             <div className={styles.auth}>
               <Link href="/submit">Submit</Link>
@@ -67,7 +67,7 @@ const Sidebar = ({ close }) => {
           </div>
           <div className={styles.header}>
             <GoSettings className={styles.icon} />
-            <p>Filter WorldCams</p>
+            <p>Filter SmartCams</p>
           </div>
           <ul className={styles.list}>
             <li onClick={() => router.push("/")}>All</li>

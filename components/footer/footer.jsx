@@ -24,7 +24,7 @@ const Footer = () => {
   return (
     <div className={styles.container}>
       <div className={styles.left}>
-        <p>WorldCam</p>
+        <p>SmartCam</p>
       </div>
       <div className={styles.right}>
         <div className={styles.column}>

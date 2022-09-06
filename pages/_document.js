@@ -6,7 +6,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <title>WorldCam</title>
+          <title>SmartCam</title>
         </Head>
         <body>
           <Main />
