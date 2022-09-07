@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
+import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { ComposableMap, Geographies, Geography } from "react-simple-maps";
+// import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 
 import { MdLocationOn } from "react-icons/md";
 import { AiFillEye } from "react-icons/ai";
