@@ -14,6 +14,7 @@ import Cam from "../../components/cam/cam";
 import styles from "../../styles/Cam.module.css";
 import Footer from "../../components/footer/footer";
 import Player from "../../components/player/player";
+import NonSSRWrapper from "../../components/no-ssr/no-ssr";
 
 const CamPage = () => {
   const router = useRouter();
@@ -24,7 +25,9 @@ const CamPage = () => {
   return (
     <div className={styles.container}>
       <Nav />
-      <Player />
+      <NonSSRWrapper>
+        <Player />
+      </NonSSRWrapper>
       <div className={styles.info}>
         <div className={styles.left}>
           <p className={styles.title}>Tidal Basin Cam</p>
