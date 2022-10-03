@@ -6,12 +6,11 @@ import { AiFillEye } from "react-icons/ai";
 
 import styles from "./cam.module.css";
 
-const Cam = ({ title, width }) => {
+const Cam = ({ datas }) => {
   const router = useRouter();
-  const imageUrl = `https://picsum.photos/300/300?random=${Math.random()}`;
 
   const goToCam = () => {
-    router.push(`/${title.toLowerCase()}/5`);
+    router.push(`/${datas?.title.toLowerCase()}/5`);
   };
 
   return (
@@ -23,7 +22,7 @@ const Cam = ({ title, width }) => {
               margin: "0 0 40px 0",
               background: "var(--gray)",
               padding: "7px",
-              width: `${width}px`,
+              width: `${datas?.width}px`,
               borderRadius: "5px",
             }
           : {}
@@ -31,18 +30,17 @@ const Cam = ({ title, width }) => {
       onClick={goToCam}
     >
       <div className={styles.image}>
-        <img src={imageUrl} alt="banner" />
-        {/* <img src="https://random.imagecdn.app/500/500" alt="sasda" /> */}
+        <img src={datas?.imageUrl} alt="banner" />
       </div>
       <div className={styles.about}>
         <p className={styles.title}>Tidal Basin Cam</p>
         <p>
           <MdLocationOn className={styles.icon} />
-          Santa Monica, CA United States
+          {datas?.location}
         </p>
         <p>
           <AiFillEye className={styles.icon} />
-          3.1M views
+          {datas?.views} views
         </p>
       </div>
     </div>
