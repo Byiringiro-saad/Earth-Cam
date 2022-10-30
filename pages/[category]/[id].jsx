@@ -18,6 +18,10 @@ import NonSSRWrapper from "../../components/no-ssr/no-ssr";
 const CamPage = () => {
   const router = useRouter();
 
+  const imageUrl = `https://picsum.photos/300/300?random=${Math.random()}`;
+  const location = "Santa Monica, CA United States";
+  const views = "3.1M";
+
   // const geoUrl =
   //   "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
 
@@ -88,7 +92,16 @@ const CamPage = () => {
           </div>
           <div className={styles.cams}>
             {[...Array(6)].map((_, index) => (
-              <Cam key={index} width={250} title={router?.query?.category} />
+              <Cam
+                key={index}
+                width={250}
+                datas={{
+                  title: router?.query?.category,
+                  imageUrl,
+                  location,
+                  views,
+                }}
+              />
             ))}
           </div>
         </div>

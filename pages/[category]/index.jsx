@@ -11,6 +11,10 @@ import styles from "../../styles/Category.module.css";
 const Category = () => {
   const router = useRouter();
 
+  const imageUrl = `https://picsum.photos/300/300?random=${Math.random()}`;
+  const location = "Santa Monica, CA United States";
+  const views = "3.1M";
+
   return (
     <div className={styles.container}>
       <Nav />
@@ -20,7 +24,15 @@ const Category = () => {
       </div>
       <div className={styles.cams}>
         {[...Array(15)].map((_, index) => (
-          <Cam key={index} title={router?.query?.category} />
+          <Cam
+            key={index}
+            datas={{
+              title: router?.query?.category,
+              imageUrl,
+              location,
+              views,
+            }}
+          />
         ))}
       </div>
       <PaginationC />
