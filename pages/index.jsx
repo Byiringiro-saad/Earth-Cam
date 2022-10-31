@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-
 import axios from "axios";
+import _ from "lodash";
+import React, { useEffect, useState } from "react";
 
 import Nav from "../components/nav/nav";
 import Cams from "../components/cams/cams";
@@ -10,66 +10,41 @@ import PaginationC from "../components/pagination/pagination";
 import Top from "../components/top/top";
 
 export default function Home() {
-  const [cams, setCams] = useState([
-    "Tress",
-    "People",
-    "Beach",
-    "City",
-    "Nature",
-    "Animals",
-    "Food",
-    "Travel",
-    "Sports",
-  ]);
-
- const [listPicsMetadata, setListPicsMetadata]  = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [cams, setCams] = useState([]);
 
   useEffect(() => {
-    axios.get("https://backend.interviewblindspots.com/displaycode/listpics/")
-        .then (res => {
-            console.log("my pics is");
-            console.log (res)
-            console.log (res?.data?.pics)
-            setListPicsMetadata(res?.data?.pics);
-        }).catch (err => {
-            console.log(err)
-        })
-    }, [])//(, [dispatch])
+    axios
+      .get("https://backend.interviewblindspots.com/displaycode/listpics/")
+      .then((res) => {
+        setCams(res?.data?.pics);
 
-    var urls = [];
-    //var urls = ["https://url1.com/xyz.png", "https://url2.com/abc.png"];
-    //urls[index % 2]
-    //start from some random number, for now
-    var min = 10;
-    var max = 1000;
-    var startIndex = Math.floor(Math.random() * (max - min + 1) + min);
-    var howManyPics = 5;
-    for (var i=startIndex; i<startIndex+howManyPics; i++) {
-        //Eg: https://backend.interviewblindspots.com/displaycode/pic/output703.jpg",
-        var currUrl = "https://backend.interviewblindspots.com/displaycode/pic/output"+i+".jpg";
-        urls.push(currUrl);
-    }  
+        //getting categories
+        const categories = _.countBy(
+          res?.data?.pics?.map((cam) => cam?.categories)
+        );
+        setCategories(Object.keys(categories));
+      })
+      .catch((err) => {
+        throw new Error(err.message);
+      });
+  }, []);
 
   return (
     <div className={styles.container}>
       <Nav />
-      <Top />
-
+      <Top categories={categories} />
       <div className={styles.cams}>
-        {listPicsMetadata.map((picMetadata, index) => (
-          <Cams key={index} title={picMetadata.name} num={index} url={picMetadata.url} />
+        {categories.map((category, index) => (
+          <Cams
+            key={index}
+            title={category}
+            num={index}
+            cams={cams.filter((cam) => cam?.categories === category)}
+          />
         ))}
       </div>
 
-
-
-
-
-      <div className={styles.cams}>
-        {cams.map((cam, index) => (
-          <Cams key={index} title={cam} num={index} url={urls[index]} urlArray={urls}/>
-        ))}
-      </div>
       <PaginationC />
       <Footer />
     </div>

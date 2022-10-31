@@ -22,9 +22,6 @@ const CamPage = () => {
   const location = "Santa Monica, CA United States";
   const views = "3.1M";
 
-  // const geoUrl =
-  //   "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
-
   return (
     <div className={styles.container}>
       <Nav />

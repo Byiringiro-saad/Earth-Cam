@@ -3,23 +3,8 @@ import { useRouter } from "next/router";
 
 import styles from "./top.module.css";
 
-const Top = ({}) => {
+const Top = ({ categories }) => {
   const router = useRouter();
-  const [categories, setCategories] = React.useState([
-    "Tress",
-    "People",
-    "Beach",
-    "City",
-    "Nature",
-    "Animals",
-    "Food",
-    "Travel",
-    "Sports",
-    "Architecture",
-    "Art",
-    "Fashion",
-    "Technology",
-  ]);
 
   const goToCategory = (e) => {
     router.push(`/${e.target.innerHTML.toLowerCase()}`);

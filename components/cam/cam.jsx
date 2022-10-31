@@ -6,10 +6,8 @@ import { AiFillEye } from "react-icons/ai";
 
 import styles from "./cam.module.css";
 
-const Cam = ({ datas, title, width, url }) => {
+const Cam = ({ datas, width }) => {
   const router = useRouter();
-  const router = useRouter();
-  //const url = `https://picsum.photos/300/300?random=${Math.random()}`;
 
   const goToCam = () => {
     router.push(`/${datas?.title.toLowerCase()}/5`);
@@ -32,18 +30,17 @@ const Cam = ({ datas, title, width, url }) => {
       onClick={goToCam}
     >
       <div className={styles.image}>
-        <img src={url} alt="banner" />
-        {/* <img src="https://random.imagecdn.app/500/500" alt="sasda" /> */}
+        <img src={datas?.url} alt="banner" loading="lazy" />
       </div>
       <div className={styles.about}>
-        <p className={styles.title}>Tidal Basin Cam</p>
+        <p className={styles.title}>{datas?.name}</p>
         <p>
           <MdLocationOn className={styles.icon} />
           {datas?.location}
         </p>
         <p>
           <AiFillEye className={styles.icon} />
-          {datas?.views} views
+          {datas?.views}
         </p>
       </div>
     </div>
