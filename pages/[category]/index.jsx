@@ -36,6 +36,9 @@ const Category = () => {
   }, []);
 
   console.log(cams);
+  const imageUrl = `https://backend.interviewblindspots.com/displaycode/randompic/`;
+  const location = "Santa Monica, CA United States";
+  const views = "3.1M";
 
   return (
     <div className={styles.container}>

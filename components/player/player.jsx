@@ -4,7 +4,7 @@ import { DefaultPlayer as Video } from "react-html5video";
 import styles from "./player.module.css";
 
 const Player = () => {
-  const imageUrl = `https://picsum.photos/300/300?random=${Math.random()}`;
+  const imageUrl = `https://backend.interviewblindspots.com/displaycode/randompic/`;
 
   return (
     <div className={styles.container}>
