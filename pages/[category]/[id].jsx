@@ -18,7 +18,7 @@ import NonSSRWrapper from "../../components/no-ssr/no-ssr";
 const CamPage = () => {
   const router = useRouter();
 
-  const imageUrl = `https://picsum.photos/300/300?random=${Math.random()}`;
+  const imageUrl = `https://backend.interviewblindspots.com/displaycode/randompic/`;
   const location = "Santa Monica, CA United States";
   const views = "3.1M";
 

@@ -4,4 +4,13 @@ const nextConfig = {
   swcMinify: true,
 }
 
-module.exports = nextConfig
+//module.exports = nextConfig
+
+module.exports = {
+  reactStrictMode: true,
+  swcMinify: true,
+  webpack(config) {
+    config.infrastructureLogging = { debug: /PackFileCache/ }
+    return config;
+  }
+}
